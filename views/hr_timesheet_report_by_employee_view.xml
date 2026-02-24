@@ -1,0 +1,217 @@
+<odoo>
+    <!-- Vista kanban personalizada -->
+    <record id="view_hr_timesheet_report_by_employee_kanban" model="ir.ui.view">
+        <field name="name">hr.timesheet.report.by.employee.kanban</field>
+        <field name="model">hr.timesheet.report</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="timesheet_manager_id" widget="many2one_avatar_user"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div>
+                                <!-- Nombre del empleado -->
+                                <div class="o_kanban_title">
+                                    <strong><field name="employee_id"/></strong>
+                                </div>
+                                <!-- Tipo de contrato -->
+                                <div>
+                                    <strong>Contract Type:</strong> <field name="contract_type_id"/>
+                                </div>
+                                <!-- Estructura de salario -->
+                                <div>
+                                    <strong>Salary Structure Type:</strong> <field name="structure_type_id"/>
+                                </div>
+                                <!-- Período -->
+                                <div>
+                                    <strong>Period:</strong> <field name="date_start"/> - <field name="date_end"/>
+                                </div>
+                                <!-- Estado de la solicitud -->
+                                <div>
+                                    <field name="request_status" widget="badge" decoration-info="request_status == 'new'" 
+                                           decoration-warning="request_status == 'pending'" decoration-success="request_status == 'approved'" 
+                                           decoration-danger="request_status == 'refused'"/>
+                                </div>
+                            </div>
+                            <div class="o_kanban_record_bottom" name="studio_auto_kanban_bottom">
+                                <div class="oe_kanban_bottom_left" name="studio_auto_kanban_bottom_left"/>
+                                <div class="oe_kanban_bottom_right" name="studio_auto_kanban_bottom_right">
+                                    <img t-att-src="kanban_image('res.users', 'avatar_128', record.timesheet_manager_id.raw_value)" t-att-title="record.timesheet_manager_id.value || unassigned" t-att-alt="record.timesheet_manager_id.value" class="oe_kanban_avatar o_image_24_cover float-right"/>
+                                </div>
+                            </div>
+
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Vista de tree -->
+    <record id="view_hr_timesheet_report_by_employee_tree" model="ir.ui.view">
+        <field name="name">hr.timesheet.report.by.employee.tree</field>
+        <field name="model">hr.timesheet.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="employee_id" string="Talent"/>
+                <field name="manager_user_id" string="Head of Engineering"/>
+                <field name="timesheet_manager_id" string="Project Manager"/>
+                <field name="contract_type_id" string="Contract Type"/>
+                <field name="structure_type_id"/>
+                <field name="department_id" string="Department"/>
+                <field name="month"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+                <field name="request_status" string="Request Status" widget="badge" decoration-info="request_status == 'new'" 
+                                           decoration-warning="request_status == 'pending'" decoration-success="request_status == 'approved'" 
+                                           decoration-danger="request_status == 'refused'"/>
+                <field name="approvers_summary"/>
+                <field name="planned_hours" string="Planned Hours"/>
+                <field name="effective_hours" string="Effective Hours"/>
+                <field name="overtime" string="Overtime"/>
+                <field name="management_hours" string="Management Hours"/>
+                <field name="time_off_hours" string="Time Off Hours"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search y filtros por defecto -->
+    <!-- <record id="hr_timesheet_report_view_search" model="ir.ui.view">
+        <field name="name">hr.timesheet.report.search</field>
+        <field name="model">hr.timesheet.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="employee_id"/>
+                <field name="month"/>
+                <field name="department_id"/>
+                <filter string="My Request" name="my_hr_timesheet_report" domain="[['timesheet_manager_id', '=', uid]]"/>
+                <separator/>
+                <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>
+                <separator/>
+                <filter name="groupby_timesheet_manager" string="Project Manager" context="{'group_by': 'timesheet_manager_id'}" domain="[]"/>
+            </search>
+        </field>
+    </record> -->
+
+    <!-- Vista de formulario personalizada -->
+    <record id="view_hr_timesheet_report_by_employee_form" model="ir.ui.view">
+        <field name="name">hr.timesheet.report.by.employee.form</field>
+        <field name="model">hr.timesheet.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                <!-- Botón "Update" -->
+                    <button name="action_update_report" 
+                            type="object" 
+                            string="Update"
+                            class="oe_highlight"
+                            invisible="request_status != 'new'"/>
+
+                    <!-- Botón "Enviar Solicitud" -->
+                    <button name="action_send_report" 
+                            type="object" 
+                            string="Enviar Solicitud"
+                            invisible="request_status != 'new'"/>
+                </header>
+                <sheet string="Reporte">
+                    <widget name="web_ribbon" text="Archived" bg_color="bg-danger" invisible="active == True"/>
+                    <field name="active" invisible="1"/>                
+                    <div class="oe_title">
+                        <label for="employee_id" />
+                        <h1>
+                            <field name="employee_id" placeholder="e.g. John Doe" options="{'no_create': True}" readonly="id" domain="[('contract_id.contract_type_id.name', '!=', 'Prestador de servicios'),
+                ('active','=',True)]"/>
+                        </h1>
+                    </div>
+
+                    <group name="studio_group_8b2a8d">
+                        <group name="studio_group_8b2a8d_left">
+                            <field name="contract_type_id" widget="many2one"/>
+                            <field name="structure_type_id" widget="many2one"/>
+                            <field name="manager_user_id" widget="many2one"/>
+                            <field name="timesheet_manager_id" widget="many2one"/>
+                            <field name="request_status" widget="badge" decoration-info="request_status == 'new'"
+                                           decoration-warning="request_status == 'pending'" decoration-success="request_status == 'approved'"
+                                           decoration-danger="request_status == 'refused'"
+                                           invisible="not approval_request_ids" readonly="True"/>
+                        </group>
+                        <group name="studio_group_8b2a8d_right">
+                            <field name="department_id" widget="many2one"/>
+                            <field name="month" readonly="id"/>
+                            <label for="date_start" string="Period"/>
+                            <div name="dates" class="o_row">
+                                <field name="date_start" widget="daterange" options="{&quot;related_end_date&quot;: &quot;date_end&quot;}" readonly="id"/>
+                                <i class="fa fa-long-arrow-right mx-2 oe_edit_only" aria-label="Arrow icon" title="Arrow"/>
+                                <i class="fa fa-long-arrow-right mx-2 oe_read_only" aria-label="Arrow icon" title="Arrow" invisible="date_start == False and date_end == False"/>
+                                <field name="date_end" widget="daterange" options="{&quot;related_start_date&quot;: &quot;date_start&quot;}" readonly="id"/>
+                            </div>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description" widget="html" readonly="True"/>
+                        </page>
+                        <page string="Approval Requests" invisible="not approval_request_ids">
+                            <field name="approval_request_ids" readonly="True">
+                                <tree open_form_view="True">
+                                    <field name="name"/>
+                                    <field name="request_status" widget="badge"
+                                           decoration-info="request_status == 'new'"
+                                           decoration-warning="request_status == 'pending'"
+                                           decoration-success="request_status == 'approved'"
+                                           decoration-danger="request_status == 'refused'"/>
+                                    <field name="approvers_summary"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter" name="oe_chatter">
+                    <field name="message_follower_ids" />
+                    <field name="message_ids" />
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- Acción del modelo -->
+    <record id="action_hr_timesheet_report_by_employee" model="ir.actions.act_window">
+        <field name="name">Timesheet Report by Employee</field>
+        <field name="res_model">hr.timesheet.report</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="search_view_id" ref="hr_timesheet_report_view_search"/>
+        <field name="domain">[
+            ('employee_id.contract_id.contract_type_id.name', '!=', 'Prestador de servicios')
+        ]</field>
+        <field name="context">{'default_month': (datetime.date.today()).strftime('%m'),
+            'default_date_start':  (datetime.date.today() - relativedelta(months=1)).strftime('%Y-%m-22'),
+            'default_date_end':  datetime.date.today().strftime('%Y-%m-21')}</field>
+        <field name="view_ids"
+            eval="[(5, 0, 0),
+                    (0, 0, {'view_mode': 'kanban', 'view_id': ref('view_hr_timesheet_report_by_employee_kanban')}),
+                    (0, 0, {'view_mode': 'form', 'view_id': ref('view_hr_timesheet_report_by_employee_form')}),
+                    (0, 0, {'view_mode': 'tree', 'view_id': ref('view_hr_timesheet_report_by_employee_tree')}),
+                    ]"/>                
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No reports found. Let's create one!
+            </p>
+            <p>
+            Keep track of your working hours by employee every month/period.
+            </p>
+        </field>        
+    </record>    
+
+    <record model="ir.cron" id="ir_cron_create_employee_timesheet_reports">
+        <field name="name">Create Employee Timesheet Reports by Period</field>
+        <field name="model_id" ref="model_hr_timesheet_report"/>
+        <field name="state">code</field>
+        <field name="code">model.create_employee_timesheet_reports()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">months</field>
+        <field name="numbercall">-1</field>
+        <field name="doall">True</field>
+        <field name="active" eval="False"/>
+    </record>
+
+</odoo>

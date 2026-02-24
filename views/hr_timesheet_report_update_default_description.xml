@@ -1,0 +1,90 @@
+<odoo>
+    <template id="hr_timesheet_report_update_default_description" name="HR Timesheet Report Table">
+        <div>
+            <!-- Encabezado -->
+            <p>
+                <strong>Talent:</strong> <t t-esc="header['employee']"/><br/>
+                <strong>Contract Type:</strong> <t t-esc="header['contract_type']"/><br/>
+                <strong>Salary Structure Type:</strong> <t t-esc="header['structure_type']"/><br/>
+                <strong>Period:</strong> <t t-esc="header['date_start']"/> - <t t-esc="header['date_end']"/>
+            </p>
+
+            <!-- Sección 1: Totales -->
+            <h4>Projects</h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Project</th>
+                        <th>Planned Hours</th>
+                        <th>Effective Hours</th>
+                        <th>Extra Hours</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="total_lines" t-as="line">
+                        <tr>
+                            <td><t t-esc="line['type']"/></td>
+                            <td><t t-esc="line['project']"/></td>
+                            <td><t t-esc="line['planned_hours']"/></td>
+                            <td><t t-esc="line['effective_hours']"/></td>
+                            <td><t t-esc="line['overtime']"/></td>
+                        </tr>
+                    </t>
+                    <tr>
+                        <td colspan="2"><strong>Total</strong></td>
+                        <td><t t-esc="totals['planned_hours']"/></td>
+                        <td><t t-esc="totals['effective_hours']"/></td>
+                        <td><t t-esc="totals['overtime']"/></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Sección 2: Internal Management -->
+            <h4>Internal Management</h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Effective Hours</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="internal_management_lines" t-as="line">
+                        <tr>
+                            <td><t t-esc="line['project']"/></td>
+                            <td><t t-esc="line['effective_hours']"/></td>
+                        </tr>
+                    </t>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><t t-esc="totals['management_hours']"/></td>
+                        </tr>                        
+                </tbody>
+            </table>
+
+            <!-- Sección 3: Time Offs -->
+            <h4>Time Off</h4>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Effective Hours</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="internal_project_lines" t-as="line">
+                        <tr>
+                            <td><t t-esc="line['task']"/></td>
+                            <td><t t-esc="line['effective_hours']"/></td>
+                        </tr>
+                    </t>
+                        <tr>
+                            <td><strong>Total</strong></td>
+                            <td><t t-esc="totals['time_off_hours']"/></td>
+                        </tr>                         
+                </tbody>
+            </table>
+        </div>
+    </template>
+</odoo>

@@ -1,0 +1,16 @@
+<odoo>
+    <!-- Menú para acceder al reporte -->
+    <menuitem id="hr_timesheet.report_menu_root_level"
+        name="To Approvals"
+        sequence="11"
+        parent="hr_timesheet.timesheet_menu_root">
+        <menuitem id="hr_timesheet.monthly_report_by_service_provider_menu"
+            name="Monthly Report by Service Provider"
+            action="action_hr_timesheet_report_by_service_provider"
+            sequence="1" />
+        <menuitem id="hr_timesheet.monthly_report_by_employee_menu"
+            name="Monthly Report by Employee"
+            action="action_hr_timesheet_report_by_employee"
+            sequence="2" />                                                                              
+    </menuitem>
+</odoo>

@@ -1,0 +1,12 @@
+<odoo>
+    <record id="project_project_stage_view_form_inherit" model="ir.ui.view">
+        <field name="model">project.project.stage</field>
+        <field name="name">project.project.stage.view.inherit.form</field>
+        <field name="inherit_id" ref="project.project_project_stage_view_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='fold']" position="after">
+                <field name="has_timesheet_reports" widget="boolean_toggle"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

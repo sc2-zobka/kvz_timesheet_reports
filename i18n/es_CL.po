@@ -1,0 +1,205 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* timesheet_reports
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e-20250429\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-21 13:14+0000\n"
+"PO-Revision-Date: 2025-08-21 13:14+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: timesheet_reports
+#: model_terms:ir.ui.view,arch_db:timesheet_reports.hr_timesheet_report_update_default_description
+msgid "<br/>\n                <strong>Contract Type:</strong>"
+msgstr "<br/>\n                <strong>Tipo de Contrato:</strong>"
+
+#. module: timesheet_reports
+#: model_terms:ir.ui.view,arch_db:timesheet_reports.hr_timesheet_report_update_default_description
+msgid "<br/>\n                <strong>Period:</strong>"
+msgstr "<br/>\n                <strong>Período:</strong>"
+
+#. module: timesheet_reports
+#: model_terms:ir.ui.view,arch_db:timesheet_reports.hr_timesheet_report_update_default_description
+msgid "<br/>\n                <strong>Salary Structure Type:</strong>"
+msgstr "<br/>\n                <strong>Tipo de Estructura Salarial:</strong>"
+
+#. module: timesheet_reports
+#: model_terms:ir.ui.view,arch_db:timesheet_reports.view_hr_timesheet_report_by_employee_kanban
+#: model_terms:ir.ui.view,arch_db:timesheet_reports.view_hr_timesheet_report_by_service_provider_kanban
+msgid "<strong>Contract Type:</strong>"
+msgstr "<strong>Tipo de Contrato:</strong>"
+
+#. module: timesheet_reports
+#: model_terms:ir.ui.view,arch_db:timesheet_reports.view_hr_timesheet_report_by_employee_kanban
+#: model_terms:ir.ui.view,arch_db:timesheet_reports.view_hr_timesheet_report_by_service_provider_kanban
+msgid "<strong>Period:</strong>"
+msgstr "<strong>Período:</strong>"
+
+#. module: timesheet_reports
+#: model_terms:ir.ui.view,arch_db:timesheet_reports.view_hr_timesheet_report_by_employee_kanban
+#: model_terms:ir.ui.view,arch_db:timesheet_reports.view_hr_timesheet_report_by_service_provider_kanban
+msgid "<strong>Salary Structure Type:</strong>"
+msgstr "<strong>Tipo de Estructura Salarial:</strong>"
+
+#. module: timesheet_reports
+#: model_terms:ir.ui.view,arch_db:timesheet_reports.hr_timesheet_report_update_default_description
+msgid "<strong>Talent:</strong>"
+msgstr "<strong>Talento:</strong>"
+
+#. module: timesheet_reports
+#: model_terms:ir.ui.view,arch_db:timesheet_reports.hr_timesheet_report_update_default_description
+msgid "<strong>Total</strong>"
+msgstr "<strong>Total</strong>"
+
+#. module: timesheet_reports
+#: model:ir.model.fields,field_description:timesheet_reports.field_hr_timesheet_report__message_needaction
+msgid "Action Needed"
+msgstr "Acción Necesaria"
+
+#. module: timesheet_reports
+#: model:ir.model.fields,field_description:timesheet_reports.field_hr_timesheet_report__active
+msgid "Active"
+msgstr "Activo"
+
+#. module: timesheet_reports
+#: model:ir.model.fields,field_description:timesheet_reports.field_hr_timesheet_report__contract_type_id
+msgid "Contract Type"
+msgstr "Tipo de Contrato"
+
+#. module: timesheet_reports
+#: model:ir.actions.server,name:timesheet_reports.ir_cron_create_employee_timesheet_reports_ir_actions_server
+msgid "Create Employee Timesheet Reports by Period"
+msgstr "Crear Reportes de Parte de Horas de Empleados por Período"
+
+#. module: timesheet_reports
+#: model:ir.actions.server,name:timesheet_reports.ir_cron_create_service_provider_timesheet_reports_ir_actions_server
+msgid "Create Service Provider Timesheet Reports by Period"
+msgstr "Crear Reportes de Parte de Horas de Prestadores de Servicios por Período"
+
+#. module: timesheet_reports
+#: model:ir.model.fields,field_description:timesheet_reports.field_hr_timesheet_report__department_id
+msgid "Department"
+msgstr "Departamento"
+
+#. module: timesheet_reports
+#: model:ir.model.fields,field_description:timesheet_reports.field_hr_timesheet_report__description
+msgid "Description"
+msgstr "Descripción"
+
+#. module: timesheet_reports
+#: model:ir.model.fields,field_description:timesheet_reports.field_hr_timesheet_report__effective_hours
+msgid "Effective Hours"
+msgstr "Horas Efectivas"
+
+#. module: timesheet_reports
+#: model:ir.model.fields,field_description:timesheet_reports.field_hr_timesheet_report__overtime
+msgid "Extra Hours"
+msgstr "Horas Extra"
+
+#. module: timesheet_reports
+#: model:ir.model.fields,field_description:timesheet_reports.field_hr_timesheet_report__date_end
+msgid "End Date"
+msgstr "Fecha de Fin"
+
+#. module: timesheet_reports
+#: model:ir.model.fields,field_description:timesheet_reports.field_hr_timesheet_report__date_start
+msgid "Start Date"
+msgstr "Fecha de Inicio"
+
+#. module: timesheet_reports
+#: model:ir.model.fields,field_description:timesheet_reports.field_hr_timesheet_report__manager_user_id
+msgid "Head of Engineering"
+msgstr "Jefe de Ingeniería"
+
+#. module: timesheet_reports
+#: model_terms:ir.actions.act_window,help:timesheet_reports.action_hr_timesheet_report_by_employee
+msgid "Keep track of your working hours by employee every month/period."
+msgstr "Lleva el control de tus horas trabajadas por empleado cada mes/período."
+
+#. module: timesheet_reports
+#: model_terms:ir.actions.act_window,help:timesheet_reports.action_hr_timesheet_report_by_service_provider
+msgid "Keep track of your working hours by service provider every month/period."
+msgstr "Lleva el control de tus horas trabajadas por prestador de servicios cada mes/período."
+
+#. module: timesheet_reports
+#: model:ir.model.fields,field_description:timesheet_reports.field_hr_timesheet_report__management_hours
+msgid "Management Hours"
+msgstr "Horas de Gestión"
+
+#. module: timesheet_reports
+#: model:ir.model.fields,field_description:timesheet_reports.field_hr_timesheet_report__month
+msgid "Month"
+msgstr "Mes"
+
+#. module: timesheet_reports
+#: model_terms:ir.actions.act_window,help:timesheet_reports.action_hr_timesheet_report_by_employee
+#: model_terms:ir.actions.act_window,help:timesheet_reports.action_hr_timesheet_report_by_service_provider
+msgid "No reports found. Let's create one!"
+msgstr "No se encontraron reportes. ¡Crea uno!"
+
+#. module: timesheet_reports
+#: model_terms:ir.ui.view,arch_db:timesheet_reports.view_hr_timesheet_report_by_employee_tree
+msgid "Overtime"
+msgstr "Horas Extra"
+
+#. module: timesheet_reports
+#: model_terms:ir.ui.view,arch_db:timesheet_reports.view_hr_timesheet_report_by_employee_form
+msgid "Period"
+msgstr "Período"
+
+#. module: timesheet_reports
+#: model:ir.model.fields,field_description:timesheet_reports.field_hr_timesheet_report__planned_hours
+msgid "Planned Hours"
+msgstr "Horas Planificadas"
+
+#. module: timesheet_reports
+#: model:ir.model.fields,field_description:timesheet_reports.field_hr_timesheet_report__timesheet_manager_id
+msgid "Project Manager"
+msgstr "Jefe de Proyecto"
+
+#. module: timesheet_reports
+#: model:ir.model.fields,field_description:timesheet_reports.field_hr_timesheet_report__employee_id
+msgid "Talent"
+msgstr "Talento"
+
+#. module: timesheet_reports
+#: model:ir.model.fields,field_description:timesheet_reports.field_hr_timesheet_report__time_off_hours
+msgid "Time Off Hours"
+msgstr "Horas de Ausencia"
+
+#. module: timesheet_reports
+#: model:ir.model,name:timesheet_reports.model_hr_timesheet_report
+msgid "Timesheet Report"
+msgstr "Reporte de Parte de Horas"
+
+#. module: timesheet_reports
+#: model:ir.actions.act_window,name:timesheet_reports.action_hr_timesheet_report_by_employee
+msgid "Timesheet Report by Employee"
+msgstr "Reporte de Parte de Horas por Empleado"
+
+#. module: timesheet_reports
+#: model:ir.actions.act_window,name:timesheet_reports.action_hr_timesheet_report_by_service_provider
+msgid "Timesheet Report by Service Provider"
+msgstr "Reporte de Parte de Horas por Prestador de Servicios"
+
+#. module: timesheet_reports
+#: model:ir.ui.menu,name:hr_timesheet.report_menu_root_level
+msgid "To Approvals"
+msgstr "A Aprobaciones"
+
+#. module: timesheet_reports
+#: model:ir.ui.menu,name:hr_timesheet.monthly_report_by_service_provider_menu
+msgid "Monthly Report by Service Provider"
+msgstr "Reporte Mensual por Prestador de Servicios"
+
+#. module: timesheet_reports
+#: model:ir.ui.menu,name:hr_timesheet.monthly_report_by_employee_menu
+msgid "Monthly Report by Employee"
+msgstr "Reporte Mensual por Empleado"

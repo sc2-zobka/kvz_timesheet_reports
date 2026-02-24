@@ -1,0 +1,142 @@
+################################################################################
+# ⚙️ KVZ STANDARD GITIGNORE
+# Proyecto: Odoo Custom Addons / Módulos Individuales
+# Entorno: macOS + Python + VS Code + GitLab (gitlab.kvz.cl)
+################################################################################
+
+##############################
+# 🐍 Python / Odoo
+##############################
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.egg-info/
+*.egg
+.eggs/
+dist/
+build/
+.env
+venv/
+.venv/
+*.import.*
+*.zip
+*.tar.gz
+*.bak
+*.log
+*.tmp
+*.pid
+*.swp
+
+##############################
+# 🧩 Odoo específico
+##############################
+# Archivos temporales generados por Odoo
+*.session
+*.dump
+*.db
+*.sqlite
+*.csv~
+*.xlsx~
+*.ods~
+*.rml~
+*.old
+*.save
+*.rej
+
+# Exportaciones automáticas (por ejemplo: data export)
+*.import.*
+*.export.*
+
+##############################
+# 🧰 Entornos locales / IDE
+##############################
+.vscode/
+.idea/
+*.code-workspace
+.project
+.pydevproject
+
+##############################
+# � AI Coding Assistants
+##############################
+# Claude / Anthropic
+.claude/
+.claude_history
+claude_context/
+
+# GitHub Copilot
+.copilot/
+
+# Cursor IDE
+.cursor/
+.cursorinclude
+
+# Aider
+.aider*
+
+# General AI assistant files
+.ai/
+*.ai.md
+
+##############################
+# �🧱 Sistema operativo
+##############################
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.Trash-*
+.fuse_hidden*
+
+##############################
+# 🔒 Configuraciones privadas / CI
+##############################
+# Archivos de configuración local (no compartir en Git)
+*.conf
+*.cfg
+*.ini
+*.json.local
+*.yml.local
+*.env.local
+.envrc
+secrets/
+credentials/
+private/
+
+##############################
+# 🚀 Docker / Contenedores (si aplica)
+##############################
+Dockerfile.local
+docker-compose.override.yml
+docker-compose.local.yml
+*.dockerfile
+*.tar
+
+##############################
+# 🧾 Documentación y temporales
+##############################
+*.pdf~
+*.docx~
+*.odt~
+*.tmp
+*.bak
+*.orig
+
+##############################
+# ⚙️ Repos y herramientas internas
+##############################
+# Ignorar posibles carpetas locales de testing
+test_output/
+reports/
+tmp/
+cache/
+__snapshots__/
